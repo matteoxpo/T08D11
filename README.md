@@ -16,7 +16,7 @@ The russian version of the task can be found in the repository.
 3. [Chapter III](#chapter-iii)
 
 
-## Chapter I 
+# Chapter I 
 
 ## Level 2. Room 4.
 
@@ -26,7 +26,7 @@ You step into the new room with your eyes closed and take a deep breath, trying 
 ***LOADING...***
 
 
-## Chapter II 
+# Chapter II 
 
 ## Quest 1. Move like a snake.
 
@@ -269,7 +269,7 @@ Looks like you have to go back to solving the equation. You remember something a
 ***LOADING...***
 
 
-## Chapter III
+# Chapter III
 
 Having solved the equation and obtained the necessary coefficients, you dial them on the combination lock. These numbers look vaguely familiar to you. \
 The lock clicks and the door opens. This has been a difficult room full of mysteries, but it's time to move forward.
