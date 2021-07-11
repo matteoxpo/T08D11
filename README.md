@@ -108,10 +108,16 @@ What? Bishop? That's familiar... or is it your fatigue playing games with you? P
 
 Looks like it's time to get into the repository and study the src/electro_snake.c file
 
-***== Quest 1 received. Modify the src/electro_snake.c program so it performs the sorting of the given matrix in a snake-like order vertically, horizontally, and in a spiral, and outputs the sorted matrices in the same order, one after another, with an empty line in between. Do not change the recommended structure of the program. ==***
+***== Quest 1 received. Modify the src/electro_snake.c program so it performs the sorting of the given matrix in a snake-like order vertically, horizontally, and in a spiral, and outputs the sorted matrices in the same order, one after another, with an empty line in between. Do not change the recommended structure of the program. There should be NO spaces at the end of each line. After the last matrix is output, the '\n' sign is not required.==***
+
+| Input | Output |
+| ------ | ------ |
+| 3 3<br/>1 2 3<br/>4 5 6<br/>7 8 9 | 1 6 7<br/>2 5 8<br/>3 4 9<br/><br/>1 2 3<br/>6 5 4<br/>7 8 9<br/><br/>7 8 9<br/>6 1 2<br/>5 4 3 |
 
 ***LOADING...***
 
+> DON'T FORGET! All your programs are tested for the style norm and memory leaks. Start-up instructions
+> the list of tests is also in the `materials` folder
 
 ## Quest 2. An old friend.
 
@@ -202,7 +208,11 @@ Nostromo.
 
     Check the correctness of the src/det.c module to continue.
 
-***== Quest 2 received. Change the src/det.c program so it calculates and outputs the determinant of the given square matrix. If it's impossible to calculate the determinant, output "n/a". ==***
+***== Quest 2 received. Change the src/det.c program so it calculates and outputs the determinant of the given square matrix with float numbers. If it's impossible to calculate the determinant, output "n/a". Output numbers with an accuracy of 6 decimal places. ==***
+
+| Input | Output |
+| ------ | ------ |
+| 3 3<br/>1 2 3<br/>4 5 6<br/>7 8 9 | 0.000000 |
 
 ***LOADING...***
 
@@ -241,7 +251,11 @@ You head over to the terminal to fulfill the android's request. As you walk towa
     The android has lied to trap you. It hasn't been receiving new matrix coefficients from the door for a long time. 
     Only I know these coefficients. Check the src/invert.c file. I "feel" for you, Yours, AI."
 
-***== Quest 3 received. Modify the src/invert.c program so it calculates and outputs the inverse matrix for the given square matrix. For errors, display "n/a". ==***
+***== Quest 3 received. Modify the src/invert.c program so it calculates and outputs the inverse matrix for the given square matrix with float numbers. For errors, display "n/a". There should be NO spaces at the end of each line. After the last row of the matrix is output, the '\n ' sign is not required. Output numbers should be separated by a space with an accuracy of 6 decimal places. ==***
+
+| Input | Output |
+| ------ | ------ |
+| 3 3<br/>1 0.5 1<br/>4 1 2<br/>3 2 2 | -1.000000 0.500000 0.000000<br/>-1.000000 -0.500000 1.000000<br/>2.500000 -0.250000 -0.500000 |
 
 ***LOADING...***
 
@@ -264,7 +278,11 @@ There is a line:
 
 Looks like you have to go back to solving the equation. You remember something about Cramer or Gauss and start writing the code.
 
-***== Quest 4 received. Modify the src/sle.c program so it solves a system of linear equations using either Cramer's rule or Gaussian elimination, at your discretion. Implementing one method is enough. Equation coefficients should be entered as a matrix via stdin. You also need to create the output of the response to stdout. Do not forget about decomposition: functions should be easy to read and not too bulky. For errors, display "n/a". ==***
+***== Quest 4 received. Modify the src/sle.c program so it solves a system of linear equations using either Cramer's rule or Gaussian elimination, at your discretion. Implementing one method is enough. Equation coefficients should be entered as a matrix via stdin. You also need to create the output of the response to stdout. Do not forget about decomposition: functions should be easy to read and not too bulky. For errors, display "n/a". Numbers should be separated by a space with an accuracy of 6 decimal places. There should be no space at the end of the output. ==***
+
+| Input | Output |
+| ------ | ------ |
+| 3 4<br/>1 1 1 2<br/>4 5 3 7<br/>2 7 7 9 | 1.000000 0.000000 1.000000 |
 
 ***LOADING...***
 
