@@ -260,7 +260,7 @@ You head over to the terminal to fulfill the android's request. As you walk towa
 ***LOADING...***
 
 
-## Quest 4*. Back from SLEep.
+## Bonus Quest 4*. Back from SLEep.
  
 You finish the code and close your eyes to take a break from the bright light of the terminal when you suddenly hear familiar sounds of the speakers, followed by the expected voice of the AI:
 
