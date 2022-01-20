@@ -12,12 +12,6 @@ void sort_vertical(int **matrix, int n, int m, int **result_matrix);
 */
 void sort_horizontal(int **matrix, int n, int m, int **result_matrix);
 
-/*
-    7 8 9
-    6 1 2
-    5 4 3
-*/
-void sort_spiral(int **matrix, int n, int m, int **result_matrix);
 
 void input(int **matrix, int *n, int *m);
 void output(int **matrix, int n, int m);
@@ -35,8 +29,4 @@ void main()
     
     sort_horizontal(matrix, n, m, result);
     output(result);
-    
-    sort_spiral(matrix, n, m, result);
-    output(result);
-
 }

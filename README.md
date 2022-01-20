@@ -12,7 +12,7 @@ The russian version of the task can be found in the repository.
  2.1. [Quest 1. Move like a snake.](#quest-1-move-like-a-snake) \
  2.2. [Quest 2. An old friend.](#quest-2-an-old-friend) \
  2.3. [Quest 3. Decision.](#quest-3-decision) \
- 2.4. [Quest 4*. Back from SLEep.](#quest-4-back-from-sleep)
+ 2.4. [Quest 4*. Back from SLEep.](#bonus-quest-4-back-from-sleep)
 3. [Chapter III](#chapter-iii)
 
 
@@ -108,13 +108,14 @@ What? Bishop? That's familiar... or is it your fatigue playing games with you? P
 
 Looks like it's time to get into the repository and study the src/electro_snake.c file
 
-***== Quest 1 received. Modify the src/electro_snake.c program so it performs the sorting of the given matrix in a snake-like order vertically, horizontally, and in a spiral, and outputs the sorted matrices in the same order, one after another, with an empty line in between. Do not change the recommended structure of the program. There should be NO spaces at the end of each line. After the last matrix is output, the '\n' sign is not required.==***
+***== Quest 1 received. Modify the src/electro_snake.c program so it performs the sorting of the given matrix in a snake-like order vertically and horizontally, and outputs the sorted matrices in the same order, one after another, with an empty line in between. Do not change the recommended structure of the program. There should be NO spaces at the end of each line. After the last matrix is output, the '\n' sign is not required. In case of any erros output `n/a`. ==***
 
 | Input | Output |
 | ------ | ------ |
-| 3 3<br/>1 2 3<br/>4 5 6<br/>7 8 9 | 1 6 7<br/>2 5 8<br/>3 4 9<br/><br/>1 2 3<br/>6 5 4<br/>7 8 9<br/><br/>7 8 9<br/>6 1 2<br/>5 4 3 |
-| 2 4<br/>1 2 3 4<br/>5 6 7 8 | 1 4 5 8<br/>2 3 6 7<br/><br/>1 2 3 4<br/>8 7 6 5<br/><br/>6 1 2 7<br/>5 4 3 8<br/> |
-| 3 3<br/>-1 -2 -3<br/>-4 -5 -6<br/>-7 -8 -9 | -9 -4 -3<br/>-8 -5 -2<br/>-7 -6 -1<br/><br/>-9 -8 -7<br/>-4 -5 -6<br/>-3 -2 -1<br/><br/>-3 -2 -1<br/>-4 -9 -8<br/>-5 -6 -7 |
+| 3 3<br/>1 2 3<br/>4 5 6<br/>7 8 9 | 1 6 7<br/>2 5 8<br/>3 4 9<br/><br/>1 2 3<br/>6 5 4<br/>7 8 9<br/> |
+| 2 4<br/>1 2 3 4<br/>5 6 7 8 | 1 4 5 8<br/>2 3 6 7<br/><br/>1 2 3 4<br/>8 7 6 5<br/> |
+| 0 0 | n/a |
+| 3 3<br/>-1 -2 -3<br/>-4 -5 -6<br/>-7 -8 -9 | -9 -4 -3<br/>-8 -5 -2<br/>-7 -6 -1<br/><br/>-9 -8 -7<br/>-4 -5 -6<br/>-3 -2 -1<br/> |
 
 
 ***LOADING...***
@@ -230,7 +231,7 @@ His sarcastic comment sounded surprisingly natural compared to the AI's metallic
 
 >I have become a victim of a set of unfortunate circumstances, and I need your help!
 
-\–Androids? Just like you? – you ask.
+– Androids? Just like you? – you ask.
 
 >That's correct. You have probably noticed by now that the labyrinth consists of a large number of rooms. You can't expect all these rooms to exist and continue to function on their own. Did you really think you were the only seeker in this labyrinth? Hahahahaha. There are thousands of you here! Our task as androids is to maintain the operability of all rooms in the labyrinth and to remove the traces after each member of the experiment. At least it used to be our task, before the AI... well, it's not that important. I've already given you too much information. The only thing you need to know is that you can't trust the AI! It hasn't been what its creators wanted it to for a long time now. 
 
