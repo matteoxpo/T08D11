@@ -8,15 +8,14 @@ void output(int **a, int n, int m);
 int symbolCorrect(char symbol);
 int sizeCorrect(int s);
 
-int matrixDet(int **matrix, int size);
+double matrixDet(int **matrix, int size);
 void getMatrixWithoutRowAndCol(int **matrix, int size, int row, int col,
                                int ***newMatrix);
-void main() {
+int main() {
   int **matrix;
   int n, m;
 
   if (dynamic(&matrix, &n, &m)) {
-    // output(result, n, m);
     double d = matrixDet(matrix, n);
     printf("%.6lf", d);
     for (int i = 0; i < n; i++) free(matrix[i]);
@@ -100,7 +99,7 @@ void getMatrixWithoutRowAndCol(int **matrix, int size, int row, int col,
   }
 }
 
-int matrixDet(int **matrix, int size) {
+double matrixDet(int **matrix, int size) {
   int det = 0;
   int degree = 1;
   if (size == 1) {
