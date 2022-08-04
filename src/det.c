@@ -48,8 +48,6 @@ int dynamic(int ***a, int *n, int *m) {
 }
 
 void dynam(int ***a, int n, int m) {
-  char symbol;
-  int check = 1;
   (*a) = malloc(n * sizeof(int *));
   for (int i = 0; i < n; i++) {
     (*a)[i] = malloc(m * sizeof(int));

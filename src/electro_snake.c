@@ -1,37 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
-    1 6 7
-    2 5 8
-    3 4 9
-*/
-void sort_vertical(int **matrix, int n, int m, int **result_matrix);
 
-/*
-    1 2 3
-    6 5 4
-    7 8 9
-*/
-void sort_horizontal(int **matrix, int n, int m, int **result_matrix);
+void sort_2(int **matrix, int n, int m);
 
 int dynamic(int ***a, int *n, int *m);
+void dynam(int ***a, int n, int m);
 int input(int ***a, int n, int m);
 void output(int **a, int n, int m);
 int symbolCorrect(char symbol);
 int sizeCorrect(int s);
+void copy(int **a, int n, int m, int **cpy);
+void horizontal(int **a, int n, int m, int *src);
+void vertical(int **a, int n, int m, int *src);
 
-void main() {
-  int **matrix, **result;
+int main() {
+  int **matrix;
   int n, m;
+  int *res;
 
   if (dynamic(&matrix, &n, &m)) {
-    sort_vertical(matrix, n, m, result);
-    output(result, n, m);
-
-    printf("\n");
-    sort_horizontal(matrix, n, m, result);
-    output(result, n, m);
-
+    sort_2(matrix, n, m);
+    copy(matrix, n, m, &res);
+    vertical(matrix, n, m, res);
+    output(matrix, n, m);
+    printf("\n\n");
+    horizontal(matrix, n, m, res);
+    output(matrix, n, m);
+    free(res);
     for (int i = 0; i < n; i++) free(matrix[i]);
     free(matrix);
   } else {
@@ -42,7 +37,17 @@ void main() {
     printf("n/a");
   }
 }
-
+void output(int **a, int n, int m) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (j != m - 1)
+        printf("%d ", a[i][j]);
+      else
+        printf("%d", a[i][j]);
+    }
+    if (i != n - 1) printf("\n");
+  }
+}
 int symbolCorrect(char symbol) {
   return symbol == ' ' || symbol == '\n' || symbol == EOF ? 1 : 0;
 }
@@ -54,10 +59,7 @@ int dynamic(int ***a, int *n, int *m) {
 
   if (scanf("%d %d%c", n, m, &symbol) == 3 && sizeCorrect(*n) &&
       sizeCorrect(*m) && symbolCorrect(symbol)) {
-    (*a) = malloc(*n * sizeof(int *));
-    for (int i = 0; i < *n; i++) {
-      (*a)[i] = malloc(*m * sizeof(int));
-    }
+    dynam(a, *n, *m);
     check = input(a, *n, *m);
   } else {
     check = 0;
@@ -65,37 +67,80 @@ int dynamic(int ***a, int *n, int *m) {
   return check;
 }
 
+void dynam(int ***a, int n, int m) {
+  (*a) = malloc(n * sizeof(int *));
+  for (int i = 0; i < n; i++) {
+    (*a)[i] = malloc(m * sizeof(int));
+  }
+}
+
 int input(int ***a, int n, int m) {
   char symbol;
   int el;
   int check = 1;
-  if (scanf("%d %d%c", n, m, &symbol)) {
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        if (scanf("%d%c", &el, &symbol) == 2 && symbolCorrect(symbol)) {
-          (*a)[i][j] = el;
-        } else {
-          check = 0;
-          break;
-        }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (scanf("%d%c", &el, &symbol) == 2 && symbolCorrect(symbol)) {
+        (*a)[i][j] = el;
+      } else {
+        check = 0;
+        break;
       }
     }
   }
   return check;
 }
 
-void sort_vertical(int **matrix, int n, int m, int **result_matrix) {
-  int count = n * m;
-  int k = 0, q = 0;
-  while (k * q != count) {
-    int min = matrix[k % n][q % m];
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
-        if (min < matrix[i][j]) min = matrix[i][j];
+void sort_2(int **matrix, int n, int m) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      for (int k = 0; k < n; k++) {
+        for (int q = 0; q < m; q++) {
+          if (matrix[i][j] < matrix[k][q]) {
+            int temp = matrix[i][j];
+            matrix[i][j] = matrix[k][q];
+            matrix[k][q] = temp;
+          }
+        }
       }
     }
-    result_matrix[k % n][q % m] = min;
-    q++;
-    k++;
+  }
+}
+
+void copy(int **a, int n, int m, int **cpy) {
+  (*cpy) = malloc(n * m * sizeof(int));
+  int k = 0;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      (*cpy)[k] = a[i][j];
+      k++;
+    }
+  }
+}
+
+void horizontal(int **a, int n, int m, int *src) {
+  for (int i = 0; i < n; i++) {
+    if (i % 2 == 0) {
+      for (int j = 0; j < m; j++) {
+        a[i][j] = src[i * m + j];
+      }
+    } else {
+      for (int j = m - 1; j >= 0; j--) {
+        a[i][m - j - 1] = src[i * m + j];
+      }
+    }
+  }
+}
+void vertical(int **a, int n, int m, int *src) {
+  for (int i = 0; i < m; i++) {
+    if (i % 2 == 0) {
+      for (int j = 0; j < n; j++) {
+        a[j][i] = src[i * n + j];
+      }
+    } else {
+      for (int j = n - 1; j >= 0; j--) {
+        a[n - j - 1][i] = src[i * n + j];
+      }
+    }
   }
 }

@@ -28,6 +28,10 @@ int main() {
       transp(res, n, n, &res);
       mul(res, n, n, 1 / d);
       output(res, n, n);
+
+      for (int i = 0; i < n; i++) free(res[i]);
+      free(res);
+
       for (int i = 0; i < n; i++) free(matrix[i]);
       free(matrix);
     } else {
@@ -104,6 +108,8 @@ void algDop(double **matrix, int n, double **res) {
       res[i][j] = pow(-1, i + 2 + j) * matrixDet(newMatrix, n - 1);
     }
   }
+  for (int i = 0; i < n - 1; i++) free(newMatrix[i]);
+  free(newMatrix);
 }
 
 void getMatrixWithoutRowAndCol(double **matrix, int size, int row, int col,
@@ -144,7 +150,6 @@ double matrixDet(double **matrix, int size) {
 }
 
 void transp(double **a, int n, int m, double ***res) {
-  dynam(res, m, n);
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       (*res)[j][i] = a[i][j];
